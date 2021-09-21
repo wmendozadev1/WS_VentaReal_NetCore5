@@ -40,7 +40,7 @@ namespace WS_VentaReal_NetCore5.Models
                 entity.ToTable("cliente");
 
                 entity.Property(e => e.Id)
-                    .ValueGeneratedNever()
+                    .ValueGeneratedOnAdd()
                     .HasColumnName("id");
 
                 entity.Property(e => e.Nombre)
