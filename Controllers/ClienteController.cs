@@ -24,7 +24,7 @@ namespace WS_VentaReal_NetCore5.Controllers
 
                 using (VentaRealContext db = new VentaRealContext())
                 {
-                    var list = db.Clientes.ToList();
+                    var list = db.Clientes.OrderByDescending(d => d.Id).ToList();
                     oRespuesta.Exito = 1;
                     oRespuesta.Data = list;
                     

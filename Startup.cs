@@ -31,7 +31,9 @@ namespace WS_VentaReal_NetCore5
                 options.AddPolicy(name: MiCors,
                                     builder =>
                                     {
+                                        builder.WithHeaders("*");
                                         builder.WithOrigins("*");
+                                        builder.WithMethods("*");
                                     });
             
             });
