@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -12,6 +13,7 @@ namespace WS_VentaReal_NetCore5.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class ClienteController : ControllerBase
     {
         [HttpGet]
@@ -27,13 +29,14 @@ namespace WS_VentaReal_NetCore5.Controllers
                     var list = db.Clientes.OrderByDescending(d => d.Id).ToList();
                     oRespuesta.Exito = 1;
                     oRespuesta.Data = list;
-                    
+
                 }
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 oRespuesta.Mensaje = ex.Message;
             }
-             
+
             return Ok(oRespuesta);
 
 
@@ -43,7 +46,7 @@ namespace WS_VentaReal_NetCore5.Controllers
         public IActionResult Add(ClienteRequest oModel)
         {
             Respuesta oRespuesta = new Respuesta();
-            
+
             try
             {
 
