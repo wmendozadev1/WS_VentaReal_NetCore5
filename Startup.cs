@@ -16,6 +16,7 @@ using System.Text;
 using System.Threading.Tasks;
 using WS_VentaReal_NetCore5.Models.Common;
 using WS_VentaReal_NetCore5.Services;
+using WS_VentaReal_NetCore5.Tools;
 
 namespace WS_VentaReal_NetCore5
 {
@@ -43,7 +44,12 @@ namespace WS_VentaReal_NetCore5
             
             });
 
-            services.AddControllers();
+            services.AddControllers()
+                .AddJsonOptions(options=> 
+                {
+                    options.JsonSerializerOptions.Converters.Add(new IntToStringConverter());
+                    options.JsonSerializerOptions.Converters.Add(new DecimalToStringConverter());
+                });
 
             //creando el token
             var appSettingsSection = Configuration.GetSection("AppSettings");

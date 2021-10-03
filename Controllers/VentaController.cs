@@ -14,7 +14,7 @@ namespace WS_VentaReal_NetCore5.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
+    //[Authorize]
     public class VentaController : ControllerBase
     {
         private IVentaService _venta;
