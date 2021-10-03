@@ -75,6 +75,9 @@ namespace WS_VentaReal_NetCore5
             });
 
             services.AddScoped<IUserService, UserService>();
+
+            services.AddScoped<IVentaService, VentaService>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
